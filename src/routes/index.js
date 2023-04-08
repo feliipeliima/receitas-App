@@ -30,7 +30,7 @@ export default function Routes(){
       if(focused){
       return  <Ionicons name="home" color="#000" size={size} />
       }
-      return <Ionicons name="home-outline" color="{color}" size={size} />
+      return <Ionicons name="home-outline" color={color} size={size} />
     }
     }} 
   /* tabBarIcon:({ color, size, focused }) => {
@@ -50,7 +50,7 @@ export default function Routes(){
     }
     }}
     />
-    </Tab.Navigator>
+    </Tab.Navigator> 
   )
 }
 

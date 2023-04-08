@@ -1,24 +1,71 @@
-import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native'
+import React, { useState } from 'react';
+import {View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity} from 'react-native'
+
+import {Ionicons} from '@expo/vector-icons';
+
+import { Logo } from '../../components/logo';
 
 export default function Home(){
+
+    const [input, setInput] = useState("");
+
+    function handleSearch(){
+        console.log(input);
+    }
   
     return(
-        <View style={styles.container}>
-        <Text style={styles.title}>Página Home!!!</Text>
+        <SafeAreaView style={styles.container}>
+        <Logo/>
+        <Text style={styles.title}>Encontre a receita</Text>
+        <Text style={styles.title}>que combina com você</Text>
+
+        <View style={styles.form}>
+         <TextInput
+         style={styles.input}
+         placeholder="Digite o nome da comida..."
+         value={input}
+         onChangeText={ (text) => setInput(text) }
+         />
+         <TouchableOpacity onPress={handleSearch}>
+          <Ionicons name="search" size={28} color="#4CBE6C"/>
+         </TouchableOpacity>
         </View>
+
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent: 'center',
-        alignContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2343'
+        backgroundColor: '#F3F9FF',
+        paddingTop: 36,
+        paddingStart: 14,
+        paddingEnd: 14,
     },
     title: {
-        fontSize: 22
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: "#0e0e0e"
+    },
+    form:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: "#FFF",
+        width: '100%',
+        marginTop: 16,
+        marginBottom: 16,
+        borderWidth:1,
+        borderRadius: 8,
+        borderColor: '#ECECEC',
+        paddingLeft: 8,
+        paddingRight: 8
+    },
+    input:{
+        width: '90%',
+        maxWidth: '90%',
+        height: 54,
+        fontSize: 16
     }
 })
