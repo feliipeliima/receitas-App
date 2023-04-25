@@ -7,7 +7,8 @@ import { Logo } from '../../components/logo';
 import api from '../../services/api';
 import FoodList from '../../components/foodlist';
 
-export default function Home(){
+
+export function Home(){
 
     const [input, setInput] = useState("");
     const [foods, setFoods] = useState([]);
